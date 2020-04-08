@@ -85,7 +85,6 @@ def generate():
         }
     count += 1
 
-
 schedule.every(1).second.do(generate)
 
 x_axis = []
@@ -98,22 +97,20 @@ def create_plot():
     plt.plot(x_axis, defender, label='defender')
     plt.plot(x_axis, attacker, label='attacker')
     plt.legend()
+    plt.pause(1e-3)
     plt.savefig('output.png')
 
 count = 0
-
 
 def case_2_get_pay_off_defender(a, u, y, B, G, R, V, E, H):
     p = u/(u+a-y)
     q = (u-y-2*a)/(u-y-a)-(V)/((u-y-a)*(B+V))-(H)/((u-y-a)*(B+V))
     return (p*q*u*B) + (p*q*u*V) + (p*V) + (q*y*B) + (q*y*V) - (p*q*y*B) - (p*q*y*V) - (p*a*B) - (p*a*V) + (p*H) - (q*a*B) - (q*a*V) + (p*q*a*B) + (p*q*a*V)
 
-
 def case_2_get_pay_off_attacker(a, u, y, B, G, R, V, E, H):
     p = u/(u+a-y)
     q = (u-y-2*a)/(u-y-a)-(V)/((u-y-a)*(B+V))-(H)/((u-y-a)*(B+V))
     return  (4*G) - (p*u*G) + (p*a*G) - (2*p*G) - (q*y*G) + (q*a*G) - (p*q*u*G) + (p*q*y*G) - (p*q*a*G) - (a*G) - (2*R) 
-
 
 def case_3_get_pay_off_defender(a, u, y, B, G, R, V, E, H):
     p=a/(a+u+y)
@@ -124,7 +121,6 @@ def case_3_get_pay_off_attacker(a, u, y, B, G, R, V, E, H):
     p=a/(a+u+y)
     q=(u+y)/(u+a+y) + V/((u+a+y)*(B+V)) + H/((u+y+a)*(B+V))
     return (p*G) - (p*a*G) - (p*R) + (p*q*a*G) - (u*q*G) - (q*a*G) + (p*q*u*G) + (p*q*y*G) + (2*G) - (2*R) - (2*p*G) + (2*p*R) 
-
 
 def case_4_get_pay_off_defender(a, u, y, B, G, R, V, E, H):
     p = y/(y+a-u)
@@ -156,20 +152,15 @@ def case_6_get_pay_off_attacker(a, u, y, B, G, R, V, E, H):
     q = (E-H)/(u-y)
     return (-p*q*u*G) - (q*y*G) - (p*q*G) + (p*q*a*G) + (p*q*R) + (G) - (R) + (p*q*G) - (p*q*R)
 
-
 def case_7_get_pay_off_defender(a, u, y, B, G, R, V, E, H):
     p=y/(y+a)
     q=a/(a+y)
     return (q*y*B) + (q*y*V) - (p*q*y*B) - (p*q*a*V) + (p*a*B) + (p*a*V) - (p*q*a*B) - (p*q*a*V) - (H) - (V)
 
-
 def case_7_get_pay_off_attacker(a, u, y, B, G, R, V, E, H):
     p=y/(y+a)
     q=a/(a+y)
     return (p*a*G) + (p*q*a*G) - (p*y*G) + (p*q*y*G) + (G) - (R)
-
-
-
 
 def get_random_value(time):
     a = random.choice(alpha)
