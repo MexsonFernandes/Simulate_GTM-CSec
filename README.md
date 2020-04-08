@@ -1,4 +1,5 @@
-# Simulation of Game Theory IDS
+# Simulation of GTM-CSec
+Game theoretic model for cloud security based on IDS and honeypot.
 
 ## Modules:
 * drawnow
