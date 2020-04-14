@@ -1,4 +1,6 @@
 # Simulation of GTM-CSec
+[![HitCount](http://hits.dwyl.com/MexsonFernandes/Simulate_GTM-CSec.svg)](http://hits.dwyl.com/MexsonFernandes/Simulate_GTM-CSec)
+
 Game theoretic model for cloud security based on IDS and honeypot.
 
 ## Modules:
